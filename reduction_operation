@@ -1,0 +1,17 @@
+class Solution:
+    def reductionOperations(self, arr: List[int]) -> int:
+ 
+        arr = sorted(arr)
+        next_large= len(arr)-2
+        count = 0
+
+        while next_large>=0 :
+            if arr[next_large] <arr[next_large+1]:
+                for i in range(len(arr)-next_large-1):
+                    arr[next_large+1] = arr[next_large]
+                    count+=1
+                next_large-=1
+            else:
+                next_large = next_large -1
+        return count
+        
